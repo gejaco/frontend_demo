@@ -8,7 +8,7 @@
     <div id="output">Waiting for transcript...</div>
     <script>
       function pollTranscription() {
-        fetch("https://your-backend.onrender.com/transcription")
+        fetch("https://backend-demo-9q0i.onrender.com/")
           .then(response => response.json())
           .then(data => {
             document.getElementById('output').innerText = data.text;

@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Polling Demo</title>
-  </head>
-  <body>
-    <h1>Transcription Output</h1>
-    <div id="output">Waiting for transcript...</div>
-    <script>
-      function pollTranscription() {
-        fetch("https://backend-demo-9q0i.onrender.com/")
-          .then(response => response.json())
-          .then(data => {
-            document.getElementById('output').innerText = data.text;
-          });
-      }
-      setInterval(pollTranscription, 2000); // Poll every 2 seconds
-    </script>
-  </body>
+<head><title>Backend Demo</title></head>
+<body>
+  <h1>Backend Message</h1>
+  <pre id="output">Loading...</pre>
+  <script>
+    function polling() {
+    fetch("https://backend-demo-9q0i.onrender.com/")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('output').innerText = data.message;
+      })
+      .catch(err => {
+        document.getElementById('output').innerText = "Error: " + err;
+      });
+    }
+    setInterval(polling, 2000);
+  </script>
+</body>
 </html>
